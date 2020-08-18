@@ -11,8 +11,10 @@ pipeline {
             }
         }*/
         stage ('Upload to AWS') {
-            withAWS(region:'us-west-2', credentials:'aws-static') {
-                s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'project-jenkins-static-shahmc')
+            steps {   
+                withAWS(region:'us-west-2', credentials:'aws-static') {
+                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'project-jenkins-static-shahmc')
+                }
             }
         }
     }
