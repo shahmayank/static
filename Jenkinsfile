@@ -20,6 +20,9 @@ pipeline {
             steps {   
                 withAWS(region:'us-west-2', credentials:'aws-static') {
                     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'project-jenkins-static-shahmc')
+                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'css', bucket:'project-jenkins-static-shahmc')
+                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'img', bucket:'project-jenkins-static-shahmc')
+                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'vendor', bucket:'project-jenkins-static-shahmc')
                 }
             }
         }
